@@ -1,0 +1,6 @@
+C:\Users\Windows\source\repos\ProyectoViernes\Biblioteca\bin\Debug\Biblioteca.dll
+C:\Users\Windows\source\repos\ProyectoViernes\Biblioteca\bin\Debug\Biblioteca.pdb
+C:\Users\Windows\source\repos\ProyectoViernes\Biblioteca\obj\Debug\Biblioteca.csprojAssemblyReference.cache
+C:\Users\Windows\source\repos\ProyectoViernes\Biblioteca\obj\Debug\Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Windows\source\repos\ProyectoViernes\Biblioteca\obj\Debug\Biblioteca.dll
+C:\Users\Windows\source\repos\ProyectoViernes\Biblioteca\obj\Debug\Biblioteca.pdb

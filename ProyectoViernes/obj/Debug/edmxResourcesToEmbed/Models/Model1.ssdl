@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PruebaMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tb_Productos">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="Precio" Type="bigint" Nullable="false" />
+    <Property Name="Cantidad" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" />
+    <Property Name="IdProvedor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tb_Provedores">
+    <Key>
+      <PropertyRef Name="IdProvedor" />
+    </Key>
+    <Property Name="IdProvedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Tb_Productos_Tb_Provedores">
+    <End Role="Tb_Provedores" Type="Self.Tb_Provedores" Multiplicity="1" />
+    <End Role="Tb_Productos" Type="Self.Tb_Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tb_Provedores">
+        <PropertyRef Name="IdProvedor" />
+      </Principal>
+      <Dependent Role="Tb_Productos">
+        <PropertyRef Name="IdProvedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PruebaMVCModelStoreContainer">
+    <EntitySet Name="Tb_Productos" EntityType="Self.Tb_Productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tb_Provedores" EntityType="Self.Tb_Provedores" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tb_Productos_Tb_Provedores" Association="Self.FK_Tb_Productos_Tb_Provedores">
+      <End Role="Tb_Provedores" EntitySet="Tb_Provedores" />
+      <End Role="Tb_Productos" EntitySet="Tb_Productos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

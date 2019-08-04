@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PruebaMVCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tb_Productos">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Precio" Type="Int64" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdProvedor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tb_Provedores" Relationship="Self.FK_Tb_Productos_Tb_Provedores" FromRole="Tb_Productos" ToRole="Tb_Provedores" />
+  </EntityType>
+  <EntityType Name="Tb_Provedores">
+    <Key>
+      <PropertyRef Name="IdProvedor" />
+    </Key>
+    <Property Name="IdProvedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Tb_Productos" Relationship="Self.FK_Tb_Productos_Tb_Provedores" FromRole="Tb_Provedores" ToRole="Tb_Productos" />
+  </EntityType>
+  <Association Name="FK_Tb_Productos_Tb_Provedores">
+    <End Role="Tb_Provedores" Type="Self.Tb_Provedores" Multiplicity="1" />
+    <End Role="Tb_Productos" Type="Self.Tb_Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tb_Provedores">
+        <PropertyRef Name="IdProvedor" />
+      </Principal>
+      <Dependent Role="Tb_Productos">
+        <PropertyRef Name="IdProvedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PruebaMVCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tb_Productos" EntityType="Self.Tb_Productos" />
+    <EntitySet Name="Tb_Provedores" EntityType="Self.Tb_Provedores" />
+    <AssociationSet Name="FK_Tb_Productos_Tb_Provedores" Association="Self.FK_Tb_Productos_Tb_Provedores">
+      <End Role="Tb_Provedores" EntitySet="Tb_Provedores" />
+      <End Role="Tb_Productos" EntitySet="Tb_Productos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

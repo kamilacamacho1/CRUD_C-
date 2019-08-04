@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PruebaMVCModelStoreContainer" CdmEntityContainer="PruebaMVCEntities">
+    <EntitySetMapping Name="Tb_Productos">
+      <EntityTypeMapping TypeName="PruebaMVCModel.Tb_Productos">
+        <MappingFragment StoreEntitySet="Tb_Productos">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdProvedor" ColumnName="IdProvedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tb_Provedores">
+      <EntityTypeMapping TypeName="PruebaMVCModel.Tb_Provedores">
+        <MappingFragment StoreEntitySet="Tb_Provedores">
+          <ScalarProperty Name="IdProvedor" ColumnName="IdProvedor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
